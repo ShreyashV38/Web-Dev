@@ -1,0 +1,188 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px lightgrey;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+.logo {
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #E7E9EB;
+    padding-top: 20px;
+    height: 100vh;
+    overflow-y: scroll;
+    position: sticky;
+    top: 60px;
+}
+
+.sidebar h3 {
+    padding-left: 20px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 8px 20px;
+    color: black;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background-color: #ccc;
+}
+
+.sidebar a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+main {
+    width: 80%;
+    padding: 30px 50px;
+}
+
+.buttons {
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.prev {
+    background-color: #ddd;
+    border: none;
+    padding: 10px 20px;
+    float: left;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.next {
+    background-color: #04AA6D;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    float: right;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.intro-box p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+hr {
+    margin: 40px 0;
+    border: 1px solid #eee;
+}
+
+.example-box {
+    background-color: #E7E9EB;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.code-view {
+    background-color: white;
+    padding: 15px;
+    border-left: 5px solid #04AA6D;
+    font-family: monospace;
+    font-size: 16px;
+}
+
+.tag { color: brown; }
+.prop { color: red; }
+.val { color: blue; }
+
+.try-btn {
+    background-color: #04AA6D;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.exercises-section {
+    margin-top: 40px;
+}
+
+.exercise-box {
+    background-color: #282A35;
+    color: white;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.exercise-inner {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.code-input {
+    font-family: monospace;
+    font-size: 18px;
+    background-color: #E7E9EB;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.exercise-box a {
+    color: white;
+}
+
+.submit-btn {
+    background-color: #04AA6D;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.info-list ul {
+    list-style-type: square;
+    line-height: 2;
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 12px;
+    color: gray;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
