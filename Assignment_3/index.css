@@ -1,7 +1,3 @@
-/* =======================================================
-   W3SCHOOLS FULL PAGE REPLICA
-   Font: Verdana, sans-serif
-======================================================= */
 * {
     box-sizing: border-box;
 }
@@ -22,9 +18,9 @@ a {
     cursor: pointer;
 }
 
-/* =======================================================
-   1. TOP NAVBAR (Fixed)
-======================================================= */
+
+   /* 1. TOP NAVBAR (Fixed) */
+
 .w3-top-nav {
     background-color: #ffffff;
     height: 75px;
@@ -49,12 +45,11 @@ a {
 .w3-logo {
     display: flex;
     align-items: center;
-    margin-right: 15px; /* Adjusted spacing for image logo */
+    margin-right: 15px;
 }
 
-/* NEW: Style for the uploaded logo image */
 .w3-logo-icon {
-    height: 45px; /* Fits perfectly in 75px header */
+    height: 45px;
     width: auto;
     object-fit: contain;
 }
@@ -137,9 +132,9 @@ a {
 }
 .btn-sign-in:hover { background-color: #059862; }
 
-/* =======================================================
-   2. SUB NAVBAR (Dark)
-======================================================= */
+
+   /* 2. SUB NAVBAR (Dark) */
+
 .w3-sub-nav {
     background-color: #282A35;
     height: 44px;
@@ -163,9 +158,9 @@ a {
 .sub-item.active { background-color: #04AA6D; color: white; }
 .sub-arrow { margin-left: auto; padding: 10px 20px; color: white; cursor: pointer; }
 
-/* =======================================================
-   3. LAYOUT GRID
-======================================================= */
+
+   /* 3. LAYOUT GRID */
+
 .w3-main-container {
     display: flex;
     margin-top: 119px;
@@ -295,7 +290,7 @@ hr { border: 0; border-top: 1px solid #eee; margin: 40px 0; }
 }
 .exercise-header { font-size: 30px; text-align: center; margin-bottom: 20px; }
 .exercise-code {
-    background-color: #38444d; /* Slightly lighter dark */
+    background-color: #38444d;
     padding: 20px;
     border-radius: 5px;
     font-family: Consolas, monospace;
@@ -371,9 +366,8 @@ hr { border: 0; border-top: 1px solid #eee; margin: 40px 0; }
 .c-red { color: red; }
 .c-blue { color: blue; }
 
-/* =======================================================
-   4. FOOTER
-======================================================= */
+
+ /* 4. FOOTER */
 .w3-footer {
     background-color: #282A35;
     color: white;
@@ -397,7 +391,7 @@ hr { border: 0; border-top: 1px solid #eee; margin: 40px 0; }
     align-items: center;
 }
 .footer-logo-img {
-    height: 45px; /* Sizing the logo in footer too */
+    height: 45px; 
     width: auto;
 }
 .footer-nav { display: flex; gap: 30px; flex-wrap: wrap; }
@@ -415,10 +409,3 @@ hr { border: 0; border-top: 1px solid #eee; margin: 40px 0; }
 .footer-col a { display: block; color: #ddd; margin-bottom: 8px; }
 .footer-col a:hover { color: white; text-decoration: underline; }
 
-/* Responsive */
-@media screen and (max-width: 992px) {
-    .w3-sidebar { display: none; }
-    .w3-content { margin-left: 0; }
-    .nav-link, .btn-sign-in { display: none; }
-    .menu-dots { display: block; }
-}
