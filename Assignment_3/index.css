@@ -1,188 +1,424 @@
+/* =======================================================
+   W3SCHOOLS FULL PAGE REPLICA
+   Font: Verdana, sans-serif
+======================================================= */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif;
+    font-family: Verdana, sans-serif;
     margin: 0;
-    padding: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+    overflow-x: hidden;
 }
 
-header {
-    background-color: white;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px lightgrey;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-header a {
+a {
     text-decoration: none;
-    color: black;
-    margin: 0 15px;
-    font-size: 18px;
+    color: inherit;
+    cursor: pointer;
 }
 
-.logo {
-    font-size: 24px;
-    letter-spacing: 2px;
-}
-
-.container {
+/* =======================================================
+   1. TOP NAVBAR (Fixed)
+======================================================= */
+.w3-top-nav {
+    background-color: #ffffff;
+    height: 75px;
     display: flex;
+    align-items: center;
+    padding: 0 25px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    justify-content: space-between;
+}
+
+/* Left: Logo + Menu */
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.w3-logo {
+    display: flex;
+    align-items: center;
+    margin-right: 15px; /* Adjusted spacing for image logo */
+}
+
+/* NEW: Style for the uploaded logo image */
+.w3-logo-icon {
+    height: 45px; /* Fits perfectly in 75px header */
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-item {
+    padding: 27px 15px;
+    color: #000;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s;
+}
+.nav-item:hover {
+    background-color: #04AA6D;
+    color: white;
+}
+.nav-caret { font-size: 10px; margin-bottom: 2px; }
+
+/* Middle: Search */
+.nav-middle {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+}
+.search-wrapper {
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+    margin-right: 15px;
+}
+.search-input {
+    width: 100%;
+    padding: 10px 45px 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: Verdana, sans-serif;
+    outline: none;
+    height: 45px;
+}
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #000;
+    cursor: pointer;
+}
+.menu-dots { font-size: 24px; font-weight: bold; cursor: pointer; padding: 0 10px; }
+
+/* Right: Links + Sign In */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.nav-link {
+    padding: 10px 10px;
+    font-size: 17px;
+    color: #000;
+}
+.nav-link:hover { color: #04AA6D; }
+
+.btn-sign-in {
+    background-color: #04AA6D;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 10px;
+    transition: 0.3s;
+    display: inline-block;
+}
+.btn-sign-in:hover { background-color: #059862; }
+
+/* =======================================================
+   2. SUB NAVBAR (Dark)
+======================================================= */
+.w3-sub-nav {
+    background-color: #282A35;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    position: fixed;
+    top: 75px;
+    width: 100%;
+    z-index: 999;
+}
+.w3-sub-nav::-webkit-scrollbar { height: 0; }
+
+.sub-item {
+    color: white;
+    padding: 12px 22px;
+    font-size: 16px;
+    white-space: nowrap;
+}
+.sub-item:hover { background-color: #000; }
+.sub-item.active { background-color: #04AA6D; color: white; }
+.sub-arrow { margin-left: auto; padding: 10px 20px; color: white; cursor: pointer; }
+
+/* =======================================================
+   3. LAYOUT GRID
+======================================================= */
+.w3-main-container {
+    display: flex;
+    margin-top: 119px;
     min-height: 100vh;
 }
 
-.sidebar {
-    width: 20%;
+/* Sidebar */
+.w3-sidebar {
+    width: 230px;
     background-color: #E7E9EB;
-    padding-top: 20px;
-    height: 100vh;
-    overflow-y: scroll;
-    position: sticky;
-    top: 60px;
+    position: fixed;
+    top: 119px;
+    bottom: 0;
+    overflow-y: auto;
+    padding-bottom: 60px;
+    z-index: 10;
 }
-
-.sidebar h3 {
-    padding-left: 20px;
+.w3-sidebar h3 {
+    font-size: 21px;
+    font-weight: 400;
+    margin: 20px 0 10px 16px;
+    color: #000;
 }
-
-.sidebar a {
+.w3-sidebar a {
     display: block;
-    padding: 8px 20px;
-    color: black;
-    text-decoration: none;
+    padding: 5px 16px;
+    color: #000;
+    font-size: 15px;
+}
+.w3-sidebar a:hover { background-color: #ccc; }
+.w3-sidebar a.active { background-color: #04AA6D; color: white; }
+
+/* Main Content */
+.w3-content {
+    flex: 1;
+    margin-left: 230px;
+    padding: 32px 48px;
+    max-width: 1100px;
 }
 
-.sidebar a:hover {
-    background-color: #ccc;
-}
+h1 { font-family: "Segoe UI", Arial, sans-serif; font-size: 42px; font-weight: 600; margin: 10px 0; }
+h2 { font-family: "Segoe UI", Arial, sans-serif; font-size: 32px; font-weight: 400; margin: 50px 0 20px 0; }
+p { margin-bottom: 16px; font-size: 15px; line-height: 1.6; }
+hr { border: 0; border-top: 1px solid #eee; margin: 40px 0; }
 
-.sidebar a.active {
-    background-color: #04AA6D;
-    color: white;
-}
-
-main {
-    width: 80%;
-    padding: 30px 50px;
-}
-
-.buttons {
+/* Top Navigation Buttons (Home/Next) */
+.chapter-nav {
+    display: flex;
+    justify-content: space-between;
     margin: 20px 0;
-    overflow: hidden;
 }
-
-.prev {
-    background-color: #ddd;
-    border: none;
-    padding: 10px 20px;
-    float: left;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.next {
+.btn-nav {
     background-color: #04AA6D;
     color: white;
-    border: none;
-    padding: 10px 20px;
-    float: right;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.intro-box p {
+    padding: 10px 45px;
     font-size: 18px;
-    line-height: 1.5;
+    border-radius: 5px;
 }
+.btn-nav:hover { background-color: #059862; }
+.btn-nav.prev { padding-left: 45px; }
 
-hr {
-    margin: 40px 0;
-    border: 1px solid #eee;
+/* Hero Section */
+.hero-box {
+    background-color: #D9EEE1;
+    padding: 40px;
+    text-align: center;
+    border-radius: 5px;
+    margin: 30px 0;
 }
+.hero-box h1 { font-size: 50px; margin-bottom: 20px; margin-top: 10px; }
+.hero-box p { font-size: 18px; margin: 10px 0; }
+.btn-hero {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 50px;
+    font-size: 18px;
+    border-radius: 25px;
+    display: inline-block;
+    margin-top: 25px;
+}
+.btn-hero:hover { background-color: #059862; }
 
+/* Code Example Box */
 .example-box {
     background-color: #E7E9EB;
     padding: 20px;
-    margin-top: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 35px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
-
-.code-view {
-    background-color: white;
-    padding: 15px;
-    border-left: 5px solid #04AA6D;
-    font-family: monospace;
-    font-size: 16px;
+.example-box h3 { margin-top: 0; font-weight: 400; font-size: 24px; }
+.code-area {
+    background-color: #fff;
+    border-left: 4px solid #04AA6D;
+    padding: 16px;
+    font-family: Consolas, Menlo, monospace;
+    font-size: 15px;
+    margin: 15px 0;
 }
-
-.tag { color: brown; }
-.prop { color: red; }
-.val { color: blue; }
-
-.try-btn {
+.btn-try {
     background-color: #04AA6D;
     color: white;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 15px;
-    cursor: pointer;
+    padding: 9px 22px;
     border-radius: 5px;
     font-size: 16px;
+    display: inline-block;
 }
 
-.exercises-section {
-    margin-top: 40px;
+/* Grey Buttons (Go to CSS Examples) */
+.btn-grey {
+    background-color: #E7E9EB;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    display: inline-block;
 }
+.btn-grey:hover { background-color: #ccc; }
 
+/* Exercise Box (Dark Blue) */
 .exercise-box {
     background-color: #282A35;
     color: white;
-    padding: 30px;
+    padding: 40px;
     border-radius: 5px;
+    margin: 30px 0;
 }
-
-.exercise-inner {
-    background-color: white;
-    color: black;
+.exercise-header { font-size: 30px; text-align: center; margin-bottom: 20px; }
+.exercise-code {
+    background-color: #38444d; /* Slightly lighter dark */
     padding: 20px;
     border-radius: 5px;
-    margin-bottom: 15px;
-}
-
-.code-input {
-    font-family: monospace;
-    font-size: 18px;
-    background-color: #E7E9EB;
-    padding: 15px;
-    margin: 15px 0;
-}
-
-.exercise-box a {
+    font-family: Consolas, monospace;
+    font-size: 16px;
+    margin-bottom: 20px;
     color: white;
 }
-
-.submit-btn {
+.exercise-input {
+    background-color: #282A35;
+    border: 1px solid #555;
+    color: white;
+    padding: 5px;
+    width: 150px;
+    border-radius: 3px;
+}
+.exercise-options {
+    text-align: center;
+    margin: 20px 0;
+}
+.exercise-option {
+    display: inline-block;
+    background-color: #555;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 0 5px;
+    font-size: 14px;
+}
+.btn-submit {
     background-color: #04AA6D;
     color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    display: block;
+    margin: 20px auto 0;
     border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
     cursor: pointer;
 }
 
-.info-list ul {
-    list-style-type: square;
-    line-height: 2;
+/* Quiz & Progress */
+.btn-blue {
+    background-color: #2196F3;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-size: 16px;
+    display: inline-block;
+}
+.btn-blue:hover { background-color: #0b7dda; }
+
+.progress-list { list-style: none; padding: 0; }
+.progress-list li {
+    margin-bottom: 15px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+.check-icon {
+    height: 20px;
+    width: 20px;
+    background-color: #D9EEE1;
+    color: #04AA6D;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    margin-right: 15px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
-footer {
+/* Syntax Colors */
+.c-brown { color: brown; }
+.c-red { color: red; }
+.c-blue { color: blue; }
+
+/* =======================================================
+   4. FOOTER
+======================================================= */
+.w3-footer {
+    background-color: #282A35;
+    color: white;
+    padding: 60px 40px;
     margin-top: 50px;
     text-align: center;
-    font-size: 12px;
-    color: gray;
-    border-top: 1px solid #ddd;
-    padding-top: 20px;
+    font-size: 13px;
+    position: relative;
+    z-index: 100;
+}
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+    flex-wrap: wrap;
+}
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
+.footer-logo-img {
+    height: 45px; /* Sizing the logo in footer too */
+    width: auto;
+}
+.footer-nav { display: flex; gap: 30px; flex-wrap: wrap; }
+.footer-nav a { font-weight: bold; font-size: 14px; }
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+    text-align: center;
+}
+.footer-col h3 { font-size: 17px; margin-bottom: 20px; font-weight: 400; color: #fff; }
+.footer-col a { display: block; color: #ddd; margin-bottom: 8px; }
+.footer-col a:hover { color: white; text-decoration: underline; }
+
+/* Responsive */
+@media screen and (max-width: 992px) {
+    .w3-sidebar { display: none; }
+    .w3-content { margin-left: 0; }
+    .nav-link, .btn-sign-in { display: none; }
+    .menu-dots { display: block; }
 }
