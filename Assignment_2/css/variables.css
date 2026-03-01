@@ -1,0 +1,48 @@
+/* CSS Variables Definition */
+:root {
+    /* Minimalist High-Contrast Dark Theme */
+    --bg-base: #0a0a0a;
+    /* Pure slate black */
+    --bg-surface: #121212;
+    /* Subtle dark surface */
+    --bg-elevated: #1a1a1a;
+    /* Slight elevation */
+
+    /* Elegant Accents - Indigo/Slate Blue */
+    --accent-primary: #6366f1;
+    /* Soft Indigo */
+    --accent-secondary: #4f46e5;
+    /* Deeper Indigo */
+    --accent-warning: #f59e0b;
+    /* Muted amber if needed */
+    --accent-gradient: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+
+    /* Typography */
+    --text-primary: #f8fafc;
+    /* Crisp soft white */
+    --text-secondary: #94a3b8;
+    /* Clean slate grey */
+    --text-tertiary: #64748b;
+    /* Muted slate */
+
+    /* UI Elements - Refined Borders */
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.15);
+    --glass-bg: rgba(10, 10, 10, 0.8);
+    --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.03);
+
+    /* Radius & Spacing */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+
+    /* Layout */
+    --max-content-width: 900px;
+    --navbar-height: 80px;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease-in-out;
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
