@@ -26,7 +26,10 @@
             </div>
             <div class="form-group">
                 <label>Password:</label>
-                <input type="password" id="login-password" name="password" required>
+                <div class="password-container">
+                    <input type="password" id="login-password" name="password" required>
+                    <img src="../img/close.png" alt="Show Password" class="password-toggle" id="toggle-login-password">
+                </div>
             </div>
             <input class="btn" type="submit" value="Login">
         </form>
@@ -37,10 +40,15 @@
             <div class="form-group">
                 <label>Email ID:</label>
                 <input type="email" id="signup-email" name="email" required>
+                <div id="signup-email-error" class="error-text"></div>
             </div>
             <div class="form-group">
                 <label>Password:</label>
-                <input type="password" id="signup-password" name="password" required>
+                <div class="password-container">
+                    <input type="password" id="signup-password" name="password" required>
+                    <img src="../img/close.png" alt="Show Password" class="password-toggle" id="toggle-signup-password">
+                </div>
+                <div id="signup-password-error" class="error-text"></div>
             </div>
             <div class="form-group">
                 <label>Upload Profile Image (Max 2MB):</label>

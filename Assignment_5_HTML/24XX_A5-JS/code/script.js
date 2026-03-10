@@ -7,10 +7,32 @@ document.addEventListener('DOMContentLoaded', function () {
         signupForm.addEventListener('submit', function (event) {
             let valid = true;
 
+            document.getElementById('signup-email-error').innerText = '';
+            document.getElementById('signup-password-error').innerText = '';
             document.getElementById('pic-error').innerText = '';
             document.getElementById('resume-error').innerText = '';
 
+            const emailInput = document.getElementById('signup-email');
+            const passwordInput = document.getElementById('signup-password');
             const profilePicInput = document.getElementById('profile-pic');
+
+            // Email Validation
+            const emailValue = emailInput.value.trim().toLowerCase();
+            if (!emailValue.endsWith('@gmail.com')) {
+                document.getElementById('signup-email-error').innerText = 'Only @gmail.com emails are allowed.';
+                valid = false;
+            }
+
+            // Password Validation
+            const passwordValue = passwordInput.value;
+            const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/;
+            if (!strongPasswordRegex.test(passwordValue)) {
+                document.getElementById('signup-password-error').innerText = 'Password must be at least 8 characters long, and include an uppercase letter, lowercase letter, number, and special character.';
+                valid = false;
+            }
+
+
+
             if (profilePicInput.files.length > 0) {
                 const fileSize = profilePicInput.files[0].size;
                 const maxSize = 2 * 1024 * 1024;
@@ -44,30 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 alert("Registration credentials and files submitted successfully!");
                 event.preventDefault();
 
-                // Simulating saving the files locally by triggering downloads
-                if (profilePicInput.files.length > 0) {
-                    const imgFile = profilePicInput.files[0];
-                    const imgUrl = URL.createObjectURL(imgFile);
-                    const imgLink = document.createElement('a');
-                    imgLink.href = imgUrl;
-                    imgLink.download = "saved_image_" + imgFile.name;
-                    document.body.appendChild(imgLink);
-                    imgLink.click();
-                    document.body.removeChild(imgLink);
-                    URL.revokeObjectURL(imgUrl);
-                }
-
-                if (resumeInput.files.length > 0) {
-                    const docFile = resumeInput.files[0];
-                    const docUrl = URL.createObjectURL(docFile);
-                    const docLink = document.createElement('a');
-                    docLink.href = docUrl;
-                    docLink.download = "saved_doc_" + docFile.name;
-                    document.body.appendChild(docLink);
-                    docLink.click();
-                    document.body.removeChild(docLink);
-                    URL.revokeObjectURL(docUrl);
-                }
+                // Form submission logic complete. Removed automatic downloading of files.
             }
         });
     }
@@ -78,11 +77,33 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault();
         });
     }
+
+    // Toggle Password Visibility functionality
+    const toggleLoginPw = document.getElementById('toggle-login-password');
+    const loginPwInput = document.getElementById('login-password');
+    if (toggleLoginPw && loginPwInput) {
+        toggleLoginPw.addEventListener('click', function () {
+            const type = loginPwInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            loginPwInput.setAttribute('type', type);
+            this.src = type === 'password' ? '../img/close.png' : '../img/open.png';
+        });
+    }
+
+    const toggleSignupPw = document.getElementById('toggle-signup-password');
+    const signupPwInput = document.getElementById('signup-password');
+    if (toggleSignupPw && signupPwInput) {
+        toggleSignupPw.addEventListener('click', function () {
+            const type = signupPwInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            signupPwInput.setAttribute('type', type);
+            this.src = type === 'password' ? '../img/close.png' : '../img/open.png';
+        });
+    }
+
 });
 
 // Using a basic jQuery animation
 $(document).ready(function () {
-    
+
     // Simple fade in effect when the page loads
     $("#auth-box").hide().fadeIn(1000);
 

@@ -9,7 +9,8 @@ dinoImg.src = '../img/dino.png';
 let animationId;
 let frames = 0;
 let score = 0;
-let highScore = 0;
+let highScore = localStorage.getItem('savedHighScore') || 0;
+highScoreElement.innerText = `High Score: ${highScore}`;
 let gameSpeed = 5;
 let gameOver = false;
 
@@ -190,6 +191,7 @@ function initGame() {
     score = 0;
     gameSpeed = 5;
     frames = 0;
+    highScoreElement.innerText = `High Score: ${highScore}`;
     gameOver = false;
     startBtn.style.display = 'none';
 
@@ -217,6 +219,7 @@ function animate() {
         if (score > highScore) {
             highScore = score;
             highScoreElement.innerText = `High Score: ${highScore}`;
+            localStorage.setItem("savedHighScore",highScore)
         }
         playDeathSound();
         ctx.fillStyle = 'red';
